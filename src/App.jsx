@@ -9,6 +9,7 @@ import { ForgetPassword } from "./Pages/ForgetPassword";
 import { UpdatePassword } from "./Pages/UpdatePassword";
 import { AppLayout } from "./Components/Layout/AppLayout";
 import { ProtectedRoute } from "./Components/Layout/ProtectedRoute";
+import { Toaster } from "react-hot-toast";
 
 const App = () => {
   const [session, setSession] = useState(null);
@@ -57,7 +58,12 @@ const App = () => {
       ),
     },
   ]);
-  return <RouterProvider router={router} />;
+  return (
+    <>
+      <RouterProvider router={router} />
+      <Toaster position="top-right" />
+    </>
+  );
 };
 
 export default App;
