@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { supabase } from "../Supabase/SupabaseClient";
+import toast from "react-hot-toast";
 
 export const UpdatePassword = () => {
-  const navigate = useNavigate();
   const [formData, setFormData] = useState({ password: "" });
   const [showPassword, setShowPassword] = useState(false);
 
@@ -21,8 +21,12 @@ export const UpdatePassword = () => {
       console.log(error);
     }
     if (data) {
-      alert("Updated Successfully!");
-      navigate("/");
+      toast.success("Updated Successfully!", {
+        style: {
+          color: "#3b82f6",
+        }
+      });
+      setTimeout(() => window.location.assign("/"), 1000);
     }
 
     setFormData({ password: "" });
@@ -42,7 +46,7 @@ export const UpdatePassword = () => {
 
           {/* Branding Header */}
           <div className="flex flex-col items-center mb-5 sm:mb-6">
-            <div className="w-11 h-11 sm:w-12 sm:h-12 bg-linear-to-br from-blue-700 to-blue-400 rounded-xl flex items-center justify-center shadow-lg shadow-blue-500/20 mb-3 sm:mb-4">
+            <div className="w-11 h-11 sm:w-12 sm:h-12 bg-linear-to-br from-blue-500 to-indigo-500 rounded-xl flex items-center justify-center shadow-lg shadow-blue-500/20 mb-3 sm:mb-4">
               <span
                 className="material-symbols-outlined text-white text-2xl"
                 style={{ fontVariationSettings: "'FILL' 1" }}
@@ -103,7 +107,7 @@ export const UpdatePassword = () => {
               {/* Submit Button */}
               <button
                 type="submit"
-                className="w-full cursor-pointer bg-linear-to-r from-blue-700 to-blue-400 text-white font-bold py-2.5 sm:py-3 rounded-full text-sm shadow-md shadow-blue-500/20 hover:shadow-xl hover:shadow-blue-500/30 active:scale-[0.98] transition-all duration-200 tracking-tight mt-1"
+                className="w-full cursor-pointer bg-linear-to-br from-blue-500 to-indigo-500 text-white font-bold py-2.5 sm:py-3 rounded-full text-sm shadow-md shadow-blue-500/20 hover:shadow-xl hover:shadow-blue-500/30 active:scale-[0.98] transition-all duration-200 tracking-tight mt-1"
               >
                 Update Password
               </button>

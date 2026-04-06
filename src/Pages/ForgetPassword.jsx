@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { supabase } from "../Supabase/SupabaseClient";
+import toast from "react-hot-toast";
 
 export const ForgetPassword = () => {
   const [formData, setFormData] = useState({ email: "" });
@@ -10,16 +11,17 @@ export const ForgetPassword = () => {
 
     const { data, error } = await supabase.auth.resetPasswordForEmail(
       formData.email,
-      {
-        redirectTo: "/updatepassword",
-      }
     );
 
     if (error) {
       console.log(error);
     }
     if (data) {
-      alert("Successfully Reset Password Please check your Email to Confirm!");
+      toast("Successfully Reset Password Please check your Email to Confirm!", {
+        style: {
+          color: "#3b82f6",
+        }
+      });
     }
 
     setFormData({ email: "" });

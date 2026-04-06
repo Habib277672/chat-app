@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
-import { IoSend } from "react-icons/io5";
 import { supabase } from "./Supabase/SupabaseClient";
 import { SignIn } from "./Pages/SignIn";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";

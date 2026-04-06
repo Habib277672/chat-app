@@ -18,13 +18,18 @@ export const SignIn = () => {
 
     if (error) {
       setMessage("Please enter correct Email & Password!");
+
       console.log(error);
       return;
     }
 
     if (data?.session) {
       setMessage("");
-      toast.success("Successfully Logged In!");
+      toast.success("Successfully Logged In!", {
+        style: {
+          color: "#3b82f6",
+        }
+      });
       setTimeout(() => window.location.assign("/chatpanel"), 1000);
     }
 
@@ -48,7 +53,7 @@ export const SignIn = () => {
       {/* Ambient Decorative Blobs */}
       <div className="pointer-events-none fixed top-0 right-0 -z-10 h-1/3 w-1/3 rounded-full bg-blue-600/5 blur-[120px]" />
       <div className="pointer-events-none fixed bottom-0 left-0 -z-10 h-1/4 w-1/4 rounded-full bg-purple-500/5 blur-[100px]" />
-      {/* <Toaster position="top-right" /> */}
+
       <section
         className="flex h-screen w-full items-center justify-center overflow-hidden bg-linear-to-br from-slate-100 to-slate-50 px-4"
         style={{ fontFamily: "'Manrope', sans-serif" }}
@@ -56,7 +61,7 @@ export const SignIn = () => {
         <div className="flex w-full max-w-sm flex-col sm:max-w-md">
           {/* Branding Header */}
           <div className="mb-5 flex flex-col items-center sm:mb-6">
-            <div className="mb-3 flex h-11 w-11 items-center justify-center rounded-xl bg-linear-to-br from-blue-700 to-blue-400 shadow-lg shadow-blue-500/20 sm:mb-4 sm:h-13 sm:w-13">
+            <div className="mb-3 flex h-11 w-11 items-center justify-center rounded-xl bg-linear-to-br from-blue-500 to-indigo-500 shadow-lg shadow-blue-500/20 sm:mb-4 sm:h-13 sm:w-13">
               <span
                 className="material-symbols-outlined text-2xl text-white"
                 style={{ fontVariationSettings: "'FILL' 1" }}
@@ -159,7 +164,7 @@ export const SignIn = () => {
               {/* Submit Button */}
               <button
                 type="submit"
-                className="w-full cursor-pointer rounded-full bg-linear-to-r from-blue-700 to-blue-400 py-2.5 text-sm font-bold tracking-tight text-white shadow-md shadow-blue-500/20 transition-all duration-200 hover:shadow-xl hover:shadow-blue-500/30 active:scale-[0.98] sm:py-3"
+                className="w-full cursor-pointer rounded-full bg-linear-to-br from-blue-500 to-indigo-500 py-2.5 text-sm font-bold tracking-tight text-white shadow-md shadow-blue-500/20 transition-all duration-200 hover:shadow-xl hover:shadow-blue-500/30 active:scale-[0.98] sm:py-3"
               >
                 Sign In
               </button>
