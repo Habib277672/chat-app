@@ -42,7 +42,7 @@ export const AppLayout = ({ setSession, session }) => {
         {/* Header */}
         <ChatHeader setSession={setSession} session={session} selectedUser={selectedUser} />
 
-        {/* Chat Area */}
+        {/* Chat Area. */}
         <main className="flex flex-1 min-h-0">
           {selectedUser ? (
             <MainContainer session={session} selectedUser={selectedUser} />
