@@ -151,7 +151,7 @@ export const Sidebar = ({ session, selectedUser, setSelectedUser }) => {
                 .select("id, email, last_seen")
                 .ilike("email", `%${searchQuery}%`)
                 .neq("id", currentUserId)
-                .limit(10);
+                .limit(50);
 
             if (error) { console.log("Search error:", error); return; }
             setSearchResults(data);

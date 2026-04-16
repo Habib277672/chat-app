@@ -4,6 +4,7 @@ import { MdEdit, MdDelete, MdCheck, MdClose } from "react-icons/md";
 import { IoAttach } from "react-icons/io5";
 import { FaRegFaceSmile } from "react-icons/fa6";
 import { supabase } from "../../Supabase/SupabaseClient";
+import toast from "react-hot-toast";
 
 export const MainContainer = ({ session, selectedUser }) => {
     const [messages, setMessages] = useState([]);
@@ -164,7 +165,7 @@ export const MainContainer = ({ session, selectedUser }) => {
 
         // Max 20MB
         if (file.size > 20 * 1024 * 1024) {
-            alert("File size must be under 20MB.");
+            toast.error("File size must be under 20MB.");
             return;
         }
 
@@ -327,6 +328,7 @@ export const MainContainer = ({ session, selectedUser }) => {
                     URL.revokeObjectURL(blobUrl);
                 } catch (err) {
                     window.open(msg.file_url, "_blank");
+                    console.log(err)
                 }
             };
 
